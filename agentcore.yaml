@@ -1,0 +1,11 @@
+# Marker for App Management backend path detection (DeploymentType.agentcore).
+# See: app/services/path_config_service.py — AGENTCORE_INDICATORS
+name: agentcore-sample
+version: "1.0.0"
+description: >
+  Minimal FastAPI container for testing AgentCore deploy via CodePipeline (Docker + ECR).
+runtime:
+  port: 8080
+  endpoints:
+    health: GET /ping
+    invoke: POST /invocations
