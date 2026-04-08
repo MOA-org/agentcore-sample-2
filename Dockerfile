@@ -1,6 +1,7 @@
 # App Management backend runs: docker build -f <dockerfile_path> -t <ecr_uri:tag> .
 # CodeBuild hosts are often x86_64 — if AgentCore requires arm64, use linux/arm64 + ARM CodeBuild.
-FROM --platform=linux/amd64 python:3.12-slim
+# Use public.ecr.aws/... below (not docker.io) so CodeBuild avoids Docker Hub anonymous 429 limits.
+FROM --platform=linux/amd64 public.ecr.aws/docker/library/python:3.12-slim
 
 WORKDIR /app
 ENV PYTHONUNBUFFERED=1
